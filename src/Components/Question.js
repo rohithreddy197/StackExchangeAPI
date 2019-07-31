@@ -65,6 +65,8 @@ class Question extends Component {
           &emsp;&emsp;
           <span>Question asked by:{this.state.displayName}</span>
           &emsp;&emsp;
+          <span>Question ID:{this.state.question.question_id}</span>
+          &emsp;&emsp;
         </div>
       </div>
     );
