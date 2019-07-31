@@ -21,7 +21,9 @@ class Stackex extends Component {
     return (
       <div>
         {this.state.data.map(a => (
-          <Titles key={a.question_id} data={a} />
+          <div key={a.question_id}>
+            <Titles data={a} />
+          </div>
         ))}
       </div>
     );

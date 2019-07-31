@@ -19,7 +19,7 @@ function CurrentActionBar(props) {
           marginLeft: "3%",
           color: "grey"
         }}>
-        {props.currentAction}
+        <i>{props.currentAction}</i>
       </span>
     </div>
   );

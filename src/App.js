@@ -1,14 +1,16 @@
 import React from "react";
-import "./App.css";
-import Stackex from "./Components/Stackex";
-import SearchAppBar from "./Components/SearchAppBar";
-import CurrentActionBar from "./Components/CurrentActionBar";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Dashboard from "./Components/Dashboard";
+import Question from "./Components/Question";
 function App() {
   return (
     <div className="App">
-      <SearchAppBar />
-      <CurrentActionBar currentAction="Questions" />
-      <Stackex />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/question/:question_id" component={Question} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
