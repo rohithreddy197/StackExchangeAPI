@@ -20,7 +20,8 @@ class Question extends Component {
     this.state = {
       question: [],
       answers: [],
-      question_id: props.match.params.question_id
+      question_id: props.match.params.question_id,
+      displayName: null
     };
   }
   componentDidMount() {
@@ -31,14 +32,21 @@ class Question extends Component {
 
     axios
       .get(`${questionURL}`)
-      .then(res => this.setState({ question: res.data.items[0] }))
+      .then(res =>
+        this.setState({
+          question: res.data.items[0],
+          displayName: res.data.items[0].owner.display_name
+        })
+      )
       .then(
         axios
           .get(`${questionAnsURL}`)
           .then(res => this.setState({ answers: res.data.items }))
       );
   }
+
   render() {
+    console.log(this.state);
     return (
       <div>
         <div>
@@ -55,7 +63,8 @@ class Question extends Component {
           &emsp;&emsp;
           <span>number of views:{this.state.question.view_count}</span>
           &emsp;&emsp;
-          {/* <span>posted by:{this.state.question.owner.display_name}</span> */}
+          <span>Question asked by:{this.state.displayName}</span>
+          &emsp;&emsp;
         </div>
       </div>
     );
