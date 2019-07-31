@@ -6,6 +6,7 @@ const titleStyle = {
   fontSize: "180%",
   textAlign: "center"
 };
+const stackexAPI = "https://api.stackexchange.com/2.2/questions";
 const cardTitle = {
   width: "90%",
   height: "100px",
@@ -25,11 +26,12 @@ class Question extends Component {
     };
   }
   componentDidMount() {
-    const questionAnsURL =
-      "https://api.stackexchange.com/2.2/questions/20721777/answers?order=desc&sort=activity&site=stackoverflow";
+    const baseURL = `${stackexAPI}/${this.state.question_id}`;
     const questionURL =
-      "https://api.stackexchange.com/2.2/questions/20721777?order=desc&sort=activity&site=stackoverflow";
-
+      baseURL + "?order=desc&sort=activity&site=stackoverflow";
+    const questionAnsURL =
+      baseURL + "/answers?order=desc&sort=activity&site=stackoverflow";
+    console.log(questionAnsURL);
     axios
       .get(`${questionURL}`)
       .then(res =>
