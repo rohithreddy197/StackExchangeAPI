@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import CurrentActionBar from "./CurrentActionBar";
+import SearchAppBar from "./SearchAppBar";
 const titleStyle = {
   fontSize: "180%",
   textAlign: "center"
@@ -38,16 +39,17 @@ class Question extends Component {
       );
   }
   render() {
-    console.log(this.state.question.is_answered);
+    console.log(this.state.question);
     return (
       <div>
         <div>
+          <SearchAppBar />
           <CurrentActionBar currentAction="Question Title" />
         </div>
         <div style={cardTitle}>
           <p style={titleStyle}>{this.state.question.title}</p>
           <span>
-            {/* Is Answered {this.state.question.is_answered ? "yes" : "No"} */}
+            Is Answered:{this.state.question.is_answered ? "yes" : "No"}
           </span>
         </div>
       </div>
