@@ -39,7 +39,6 @@ class Question extends Component {
       );
   }
   render() {
-    console.log(this.state.question);
     return (
       <div>
         <div>
@@ -51,6 +50,12 @@ class Question extends Component {
           <span>
             Is Answered:{this.state.question.is_answered ? "yes" : "No"}
           </span>
+          &emsp;&emsp;
+          <span>number of answers:{this.state.question.answer_count}</span>
+          &emsp;&emsp;
+          <span>number of views:{this.state.question.view_count}</span>
+          &emsp;&emsp;
+          {/* <span>posted by:{this.state.question.owner.display_name}</span> */}
         </div>
       </div>
     );
